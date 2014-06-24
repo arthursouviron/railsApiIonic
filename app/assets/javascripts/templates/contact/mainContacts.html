@@ -1,0 +1,7 @@
+<h1 class="text-center">My Contacts</h1>
+<a href="/"> Back </a>
+<a href="/#/contacts/new"> New Contact </a>
+<div class="row" ng-repeat="contact in data.contacts" ng-click='viewContact(contact.id)'>
+  <h2>{{ contact.email }}</h2>
+  <p>{{ contact.first_name + ' ' + contact.last_name }}</p>
+</div>
