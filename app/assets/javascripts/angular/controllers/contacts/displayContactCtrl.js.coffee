@@ -1,4 +1,4 @@
-@DisplayContactCtrl = ($scope, $route, $routeParams, $http, userService, contactService) ->
+@DisplayContactCtrl = ($scope, $route, $routeParams, $http, contactService) ->
 
   contactService.fetchContact
     contactId: $routeParams.id

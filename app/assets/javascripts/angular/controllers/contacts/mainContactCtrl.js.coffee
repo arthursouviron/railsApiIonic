@@ -1,4 +1,4 @@
-@ContactCtrl = ($scope, $location, $http, userService, contactService) ->
+@ContactCtrl = ($scope, $location, $http, contactService) ->
   $scope.data = 
     contacts: [{email: 'Loading contacts...'}]
   

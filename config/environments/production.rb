@@ -32,6 +32,7 @@ Api::Application.configure do
   # Generate digests for assets URLs.
   config.assets.digest = true
 
+
   # Version of your assets, change this if you want to expire all your assets.
   config.assets.version = '1.0'
 
@@ -60,6 +61,7 @@ Api::Application.configure do
   # Precompile additional assets.
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
   # config.assets.precompile += %w( search.js )
+  #config.assets.precompile += %w( main.js )
 
 
   # Ignore bad email addresses and do not raise email delivery errors.
@@ -72,7 +74,7 @@ Api::Application.configure do
 
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
-  config.assets.precompile += %w( main.js )
+
 
   # Disable automatic flushing of the log to improve performance.
   # config.autoflush_log = false

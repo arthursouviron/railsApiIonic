@@ -1,4 +1,4 @@
-@CreateContactCtrl = ($scope, $route, $http, userService, contactService) ->
+@CreateContactCtrl = ($scope, $route, $http, contactService) ->
 
   $scope.saveContact = () ->
     data = {
