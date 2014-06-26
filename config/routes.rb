@@ -7,7 +7,7 @@ Api::Application.routes.draw do
 
   devise_for :users, :controllers => { :registrations => 'registrations', :sessions => 'sessions' }
   
-  match '*all', to: 'application#set_cors', via: [:options]
+  #match '*all', to: 'application#set_cors', via: [:options]
 
   resources :users do
     resources :contacts
