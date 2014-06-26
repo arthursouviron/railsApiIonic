@@ -4,10 +4,10 @@ Api::Application.routes.draw do
   #match '*all' => 'application#cor', :constraints => {:method => 'OPTIONS'}
 
 
-  match 'users/sign_in', to: 'sessions#create', via: [:options]
 
   devise_for :users, :controllers => { :registrations => 'registrations', :sessions => 'sessions' }
   
+  match '*all', to: 'application#set_cors', via: [:options]
 
   resources :users do
     resources :contacts
