@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
     headers['Access-Control-Max-Age'] = '1728000'
   end
 
-  
+
   # def cor
   #   headers["Access-Control-Allow-Origin"] = "*"
   #   headers["Access-Control-Allow-Methods"] = %w{GET POST PUT DELETE OPTIONS}.join(",")

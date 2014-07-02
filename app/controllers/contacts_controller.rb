@@ -4,8 +4,12 @@ class ContactsController < ApplicationController
 
   # GET /contacts
   # GET /contacts.json
+  # 
+   
+   
+  
   def index
-    @contacts = Contact.all
+    @contacts = Contact.where(:user_id => current_user.id)
     respond_to do |format|
       format.json { render json: @contacts.to_json }
     end
@@ -22,7 +26,7 @@ class ContactsController < ApplicationController
   # POST /contacts.json
   def create
     @contact = Contact.new(contact_params)
-
+    @contact.user_id = current_user.id
     if @contact.save
       render json: @contact.to_json, status: :created
     else
@@ -54,6 +58,6 @@ class ContactsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
-      params.require(:contact).permit(:first_name, :last_name, :email, :user_id)
+      params.require(:contact).permit(:first_name, :last_name, :email)
     end
 end
