@@ -14,6 +14,7 @@ gem 'devise'
 #pg
 gem 'pg'
 
+gem "paperclip", "~> 4.1"
 
 # Haml
 gem 'haml'
