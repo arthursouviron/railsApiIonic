@@ -14,9 +14,22 @@ window.App.service('userService', ($http) ->
         
     ).then( (res) ->
       console.log "success"
+      console.log res
     , (res) ->
       alert('error update')
     )
+
+  update_avatar : (data) ->
+    $http(
+      method: 'PUT'
+      url: './users/edit_avatar'
+      data: data
+    ).then( (res) ->
+      $location.path('/contacts')
+    , (res) ->
+      alert('error update')
+    )
+
 
 
       # url: "/users/sign_in"
