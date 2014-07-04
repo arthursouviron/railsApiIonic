@@ -9,4 +9,11 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   
   has_many :contacts
+
+
+
+
+  def avatar_url
+    avatar.url(:thumb)
+  end
 end

@@ -25,7 +25,8 @@ class SessionsController < Devise::SessionsController
         :success => true,
         :user => current_user,
         :status => :ok,
-        :authentication_token => current_user.authentication_token
+        :authentication_token => current_user.authentication_token,
+        :avatar_url => current_user.avatar.url
       }
     }
     format.html {
