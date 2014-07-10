@@ -5,7 +5,7 @@ Api::Application.routes.draw do
 
 
  
- match '/users/edit_avatar', to: 'sessions#isAuth', via: [:options]
+  match '/users/edit_avatar', to: 'sessions#isAuth', via: [:options]
   match '/users/edit_avatar', to: 'users#update_avatar', via: [:post, :put]
 
   devise_for :users, :controllers => { :registrations => 'registrations', :sessions => 'sessions' }
