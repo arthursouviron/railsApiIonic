@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def update_avatar
     @user = User.find_by_email(params[:user_email])
-    if @user.update(user_params)
+    if @user.update_attribute(:avatar, params[:avatar])
       render json: @user.avatar.url
     else
       render json: @user.errors, status: :unprocessable_entity
@@ -17,6 +17,6 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.permit(:avatar)
+      params.permit(:avatar, :user_token, :user_email)
     end
 end

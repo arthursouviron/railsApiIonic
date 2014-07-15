@@ -1,8 +1,7 @@
 class SessionsController < Devise::SessionsController
   respond_to :json
   # POST /resource/sign_in
-  # 
-  
+  skip_before_filter :require_no_authentication, :only => [:new, :create]
    
   def isAuth
     authenticate_user_from_token!
@@ -24,15 +23,9 @@ class SessionsController < Devise::SessionsController
       render :json => {
         :success => true,
         :user => current_user,
-        :status => :ok,
-        :authentication_token => current_user.authentication_token,
-        :avatar_url => current_user.avatar.url
+        :status => :ok
       }
     }
-    format.html {
-      redirect_to :root
-    }
-
    end
   end
   

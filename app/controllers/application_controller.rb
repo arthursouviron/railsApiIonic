@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   def cors_set_access_control_headers
     headers['Access-Control-Allow-Origin'] = '*' 
     headers["Access-Control-Allow-Methods"] = %w{GET POST PUT DELETE OPTIONS}.join(",")
-    headers["Access-Control-Allow-Headers"] = %w{Origin Accept Content-Type X-Requested-With X-CSRF-Token}.join(",")
+    headers["Access-Control-Allow-Headers"] = %w{Origin Accept Content-Type X-Requested-With X-CSRF-Token X-User-Token X-User-Email}.join(",")
     head(:ok) if request.request_method == "OPTIONS"
   end
 

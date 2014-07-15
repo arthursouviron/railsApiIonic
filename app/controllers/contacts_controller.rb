@@ -48,6 +48,9 @@ class ContactsController < ApplicationController
   # DELETE /contacts/1.json
   def destroy
     @contact.destroy
+    render :json => {
+      :success => true
+    }
   end
 
   private
@@ -58,6 +61,6 @@ class ContactsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
-      params.require(:contact).permit(:first_name, :last_name, :email, :avatar)
+      params.require(:contact).permit(:first_name, :last_name, :email, :avatar, :user_token, :user_email)
     end
 end
