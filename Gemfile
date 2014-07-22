@@ -16,6 +16,10 @@ gem 'pg'
 
 gem "paperclip", "~> 4.1"
 
+#Google push Notif
+gem 'pushmeup'
+
+
 # Haml
 gem 'haml'
 

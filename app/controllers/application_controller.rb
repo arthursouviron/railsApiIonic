@@ -24,6 +24,21 @@ class ApplicationController < ActionController::Base
     headers['Access-Control-Max-Age'] = '1728000'
   end
 
+  def send_push
+    GCM.host = 'https://android.googleapis.com/gcm/send'
+    GCM.format = :json
+    GCM.key = 'AIzaSyBOMiaIoMzzyV9Njche3PROmE5FKaqeOts'
+
+
+
+
+    tokens = User.where.not(register_id_token: nil).map(&:register_id_token)
+    GCM.send_notification(tokens, {message: "Je te regarde!"})
+
+
+    render json: 'ok'
+  end
+
 
   # def cor
   #   headers["Access-Control-Allow-Origin"] = "*"

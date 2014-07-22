@@ -23,9 +23,11 @@ class SessionsController < Devise::SessionsController
       render :json => {
         :success => true,
         :user => current_user,
-        :status => :ok
+        :status => :ok,
+        :avatar_url => current_user.avatar.url
       }
     }
+
    end
   end
   
