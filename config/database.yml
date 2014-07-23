@@ -39,5 +39,5 @@ production:
   pool: 5
   database: app_production
   pool: 5
-  username: rails
-  password: rails
+  username: postgres
+  password: 

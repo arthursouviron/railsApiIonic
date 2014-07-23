@@ -49,10 +49,12 @@ class ConversationsController < ApplicationController
     def set_conversation
       @conversation = Conversation.where('user_id = ? AND contact_index = ?', params[:user_id], params[:id]).first()
       if !@conversation
+        puts "CONVERS NULL"
         @conversation = Conversation.where('user_id = ? AND contact_index = ?', params[:id], params[:user_id]).first()
       end
 
       if @conversation
+        puts "CONVERS FOUND"
         messages_sent = Message.where('sender_id = ? AND destination_id = ?', current_user.id, @conversation.contact_index)
         messages_received = Message.where('sender_id = ? AND destination_id = ?', @conversation.contact_index, current_user.id) 
         
