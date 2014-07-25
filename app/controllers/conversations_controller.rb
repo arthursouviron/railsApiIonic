@@ -55,8 +55,8 @@ class ConversationsController < ApplicationController
 
       if @conversation
         puts "CONVERS FOUND"
-        messages_sent = Message.where('sender_id = ? AND destination_id = ?', current_user.id, @conversation.contact_index)
-        messages_received = Message.where('sender_id = ? AND destination_id = ?', @conversation.contact_index, current_user.id) 
+        messages_sent = Message.where('sender_id = ? AND destination_id = ?', params[:user_id], params[:id])
+        messages_received = Message.where('sender_id = ? AND destination_id = ?', params[:id], params[:user_id]) 
         
         @messages = messages_sent + messages_received
         #@messages = (Message.where('sender_id = ? AND destination_id = ?', current_user.id, @conversation.contact_index) | Message.where('sender_id = ? AND destination_id = ?', @conversation.contact_index, current_user.id))

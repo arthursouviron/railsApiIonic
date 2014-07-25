@@ -26,6 +26,7 @@ class ContactsController < ApplicationController
   # POST /contacts.json
   def create
     @contact = Contact.new(contact_params)
+    puts "CURRENT USER =>>> #{current_user.id}"
     @contact.user_id = current_user.id
     if @contact.save
       render json: @contact.to_json, status: :created
@@ -61,6 +62,6 @@ class ContactsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
-      params.require(:contact).permit(:first_name, :last_name, :email, :avatar, :user_token, :user_email)
+      params.require(:contact).permit(:first_name, :last_name, :email, :avatar)
     end
 end
